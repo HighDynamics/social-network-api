@@ -1,4 +1,22 @@
 {
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "social-network-api",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HighDynamics/social-network-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HighDynamics/social-network-api/issues"
+  },
+  "homepage": "https://github.com/HighDynamics/social-network-api#readme",
   "dependencies": {
     "express": "^4.17.2",
     "luxon": "^2.3.0",
