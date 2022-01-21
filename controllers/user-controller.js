@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Thought } = require('../models');
 
 const userController = {
   // api/users
@@ -102,8 +102,11 @@ const userController = {
           res.status(404).json({ message: 'No user found with this id' });
           return;
         }
-        res.json(dbUserData);
+        return Thought.deleteMany({ username: dbUserData.username });
       })
+      .then((dbThoughtData) =>
+        res.json({ message: 'User and associated thoughts have been deleted' })
+      )
       .catch((err) => res.status(400).json(err));
   },
 };

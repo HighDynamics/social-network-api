@@ -1,4 +1,5 @@
 const { Schema, model, Types } = require('mongoose');
+const { Thought } = require('../models');
 
 const emailRegex =
   /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
@@ -46,6 +47,13 @@ const UserSchema = new Schema(
 UserSchema.virtual('friendCount').get(function () {
   return this.friends.length;
 });
+
+// tried to make this work but had no luck. The logic is now contained in user-controller.js
+
+// UserSchema.post('findOneAndDelete', (user) => {
+//   console.log(user);
+//   Thought.deleteMany({ username: user.username });
+// });
 
 const User = model('User', UserSchema);
 
