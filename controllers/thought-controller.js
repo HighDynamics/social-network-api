@@ -31,11 +31,11 @@ const thoughtController = {
   },
 
   // create thought
-  createThought({ params, body }, res) {
+  createThought({ body }, res) {
     Thought.create(body)
       .then(({ _id }) => {
         return User.findOneAndUpdate(
-          { _id: params.userId },
+          { username: body.username },
           { $push: { thoughts: _id } },
           { new: true }
         );
@@ -69,7 +69,7 @@ const thoughtController = {
   // add reaction
   addReaction({ params, body }, res) {
     Thought.findOneAndUpdate(
-      { _id: params.thoughtId },
+      { _id: params.id },
       { $push: { reactions: body } },
       { new: true, runValidators: true }
     )
@@ -113,3 +113,5 @@ const thoughtController = {
       .catch((err) => res.status(400).json(err));
   },
 };
+
+module.exports = thoughtController;

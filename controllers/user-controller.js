@@ -50,6 +50,7 @@ const userController = {
       { $push: { friends: params.friendId } },
       { new: true }
     )
+      .select('-__v')
       .then((dbUserData) => {
         if (!dbUserData) {
           res.status(404).json({ message: 'No user found with this id' });
@@ -66,6 +67,7 @@ const userController = {
       { $pull: { friends: params.friendId } },
       { new: true }
     )
+      .select('-__v')
       .then((dbUserData) => {
         if (!dbUserData) {
           res.status(404).json({ message: 'No user found with this id' });
@@ -81,6 +83,7 @@ const userController = {
       new: true,
       runValidators: true,
     })
+      .select('-__v')
       .then((dbUserData) => {
         if (!dbUserData) {
           res.status(404).json({ message: 'No user found with this id' });
