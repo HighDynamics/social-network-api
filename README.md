@@ -26,6 +26,8 @@ A backend for connecting with friends and sharing thoughts using MongoDB
 
     npm run start
 
+Walkthrough video: [social-network-api walkthrough](https://drive.google.com/file/d/1XnnhGhLakS1_w8BsGRgzYb3cVB_tEEM2/view)
+
 ## Testing
 
 Run the server and test end points in your favorite API route testing application
